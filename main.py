@@ -1,5 +1,5 @@
 from Assistant import Assistant
-#test commit
+
 def main():
     a = Assistant()
 

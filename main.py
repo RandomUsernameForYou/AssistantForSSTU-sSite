@@ -1,14 +1,13 @@
 from Assistant import Assistant
 
 def main():
-    a = Assistant()
+    bot = Assistant()
+    info = bot.listening()
 
-    for k, v in a.commands_dict['commands'].items():
-        info = a.listening()
-        print(info)
-        if info in v:
-            print(getattr(a, k)())
-
+    for k, v in bot.commands_dict.items(): 
+       if info in v:
+           bot.bot_voice(getattr(bot, k)())
+           break
 
 
 if __name__ == '__main__':

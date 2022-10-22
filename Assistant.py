@@ -1,5 +1,6 @@
 import speech_recognition
 import pyttsx3
+from random import randint
 
 class Assistant:
     def __init__(self):
@@ -12,6 +13,7 @@ class Assistant:
             'greeting': ['хай', 'прифки', 'привет'],
             'get_answer': ['как дела', 'че как сам']
         }
+
     def listening(self):
         '''The method return recognized command'''
         try:
@@ -27,7 +29,18 @@ class Assistant:
     def bot_voice(self, text):
         self.engine.say(text)
         self.engine.runAndWait() #Clearing queue and text playback
-        
+
+    def set_request(self):
+        print('Введите запрос к предсказателю')
+        self.message_for_prediction = input()
+        return self.message_for_prediction
+
+    def get_result_predictions (self, message):
+        if randint(0,1) == 1:
+            return "Да"
+        else:
+            return "Нет"
+
     def greeting(self):
         '''This method greet user'''
         return 'привет'
